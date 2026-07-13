@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Agent Registration - Teaching Example</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+  .form-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .form-card h2 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    color: #1f2937;
+  }
+  .subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .field {
+    margin-bottom: 16px;
+  }
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+  }
+  input, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: #2563eb;
+  }
+  .error {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+  }
+  .field.invalid input {
+    border-color: #dc2626;
+  }
+  .field.invalid .error {
+    display: block;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  button:hover {
+    background: #1d4ed8;
+  }
+  #successMsg {
+    display: none;
+    background: #ecfdf5;
+    color: #065f46;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="form-card">
+  <h2>Agent Registration</h2>
+  <p class="subtitle">Register as a service agent to get started</p>
+
+  <div id="successMsg">Registration successful! You can now log in.</div>
+
+  <!-- <form id="agentForm" novalidate> -->
+
+    <div class="field" id="nameField">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" placeholder="Enter your full name">
+      <div class="error">Full name is required.</div>
+    </div>
+
+    <div class="field" id="mobileField">
+      <label for="mobile">Mobile Number</label>
+      <input type="text" id="mobile" placeholder="10-digit mobile number" maxlength="10">
+      <div class="error">Enter a valid 10-digit mobile number.</div>
+    </div>
+
+    <div class="field" id="emailField">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="you@example.com">
+      <div class="error">Enter a valid email address.</div>
+    </div>
+
+    <div class="field" id="stateField">
+      <label for="state">State</label>
+      <select id="state">
+        <option value="">Select your state</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+      </select>
+      <div class="error">Please select a state.</div>
+    </div>
+
+    <div class="field" id="passwordField">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Minimum 6 characters">
+      <div class="error">Password must be at least 6 characters.</div>
+    </div>
+
+    <button type="button" onclick="submit()">Register</button>
+  <!-- </form> -->
+</div>
+
+<script>
+  
+  function submit(){
+    // alert("btn clicked")
+
+    const name = document.getElementById("fullName").value;
+    const pass = document.getElementById("password").value;
+    const no = document.getElementById("mobile").value;
+    const email = document.getElementById("email").value;
+    const state = document.getElementById("state").value;
+
+    if(name == "" || pass == "" || no == ""|| email=="" || state==""){
+        alert("please privde the required details")
+    }
+    else if(no.length <10){
+        alert("provide 10 digit mobile no")
+    }
+    else if(!email.endsWith("@gmail.com")){
+alert("provide valid email")
+    }
+    else if(pass.length <6){
+        alert("password must be minimum 6 digit long")
+    }
+    else{
+        alert("login success!")
+    }
+    
+  }
+   
+</script>
+
+</body>
+</html>

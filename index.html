@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#4facfe,#00f2fe);
+        }
+
+        .login-box{
+            width:350px;
+            background:#fff;
+            padding:35px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+            text-align:center;
+        }
+
+        .login-box h1{
+            margin-bottom:25px;
+            color:#333;
+        }
+
+        .input-box{
+            margin-bottom:18px;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:12px 15px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+            outline:none;
+            transition:.3s;
+        }
+
+        .input-box input:focus{
+            border-color:#4facfe;
+            box-shadow:0 0 8px rgba(79,172,254,.5);
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            background:#4facfe;
+            color:#fff;
+            font-size:17px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#008cff;
+            transform:scale(1.03);
+        }
+
+        p{
+            margin-top:18px;
+            color:#666;
+            font-size:14px;
+        }
+
+        a{
+            color:#008cff;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        a:hover{
+            text-decoration:underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h1>Login</h1>
+
+        <div class="input-box">
+            <input id="name" type="text" placeholder="Enter Username">
+        </div>
+
+        <div class="input-box">
+            <input id="pass" type="password" placeholder="Enter Password">
+        </div>
+
+        <button onclick="checkLogin()">Login</button>
+
+        <p>Don't have an account? <a href="#">Register</a></p>
+    </div>
+
+    <script>
+        function checkLogin(){
+
+            const name = document.getElementById("name").value;
+            console.log('name is: ', name);
+            
+
+            const pass = document.getElementById("pass").value;
+            console.log('password is: ', pass);
+
+            if(name =="" || pass == ""){
+                alert("please enter the name and password")
+            }
+
+            if(name =="ahmed" && pass == "1234"){
+                alert("login success!")
+                
+                document.getElementById("name").value = ""
+                document.getElementById("pass").value = ""
+            }else{
+                alert("provide valid credentials")
+            }
+        }
+    </script>
+
+</body>
+</html>
